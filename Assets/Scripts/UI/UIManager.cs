@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public GameObject activityAndTime;
+
     [Header("Activity")]
     public TextMeshProUGUI activity;
     public TMP_InputField activityField;
@@ -37,6 +38,7 @@ public class UIManager : MonoBehaviour
         int wordCount = activityField.text.Length;
         int minuteCount = timerField.text.Length;
 
+		// gray out the submit button if all the fields are not filled
         if (wordCount > 0 && minuteCount > 0)
         {
             submitButton.interactable = true;
@@ -46,8 +48,8 @@ public class UIManager : MonoBehaviour
             submitButton.interactable = false;
         }
 
-        timeRemaining -= Time.deltaTime;
-        StopWatch();
+        timeRemaining -= Time.deltaTime; // count down the timer
+        StopWatch(); // call the stopwatch system
     }
 
     private void SetActivity()
@@ -58,11 +60,11 @@ public class UIManager : MonoBehaviour
     private void StopWatch()
     {
 
-        int roundedSeconds = Mathf.FloorToInt(timeRemaining);
-        int minuteResult = roundedSeconds / 60;
+        int roundedSeconds = Mathf.FloorToInt(timeRemaining); // round the seconds to integers because float is too much numbers
+        int minuteResult = roundedSeconds / 60; // divide the seconds by 60 to make minutes
 
-        string printResult;
-        string unitType;
+        string printResult; // this is a string to be assigned what to print later
+        string unitType; // will be used to change "minutes" to "minute" if is only 1 minute (grammar stuff)
 
         if (roundedSeconds < 0) roundedSeconds = 0; // so it doesn't go negative
         if (roundedSeconds <= 60)
