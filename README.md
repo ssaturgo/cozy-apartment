@@ -1,5 +1,5 @@
 # project-beloved
-a game made in Unity3d to celebrate my girlfriends birthday ( WIP )
+a game made in Unity to celebrate my girlfriends birthday ( WIP )
 
 ## Screenshots
 ![Dancing](https://user-images.githubusercontent.com/59628448/126671290-5460a9c8-e35b-404a-a9b1-7c3927bb83e0.gif)
